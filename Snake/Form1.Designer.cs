@@ -63,18 +63,21 @@
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
             this.newGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
+            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // highScoreToolStripMenuItem
             // 
             this.highScoreToolStripMenuItem.Name = "highScoreToolStripMenuItem";
             this.highScoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.highScoreToolStripMenuItem.Text = "High Score";
+            this.highScoreToolStripMenuItem.Click += new System.EventHandler(this.highScoreToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // paint
             // 
@@ -85,6 +88,7 @@
             this.paint.Size = new System.Drawing.Size(720, 425);
             this.paint.TabIndex = 1;
             this.paint.TabStop = false;
+            this.paint.Paint += new System.Windows.Forms.PaintEventHandler(this.onPaint);
             // 
             // Snake
             // 
@@ -96,6 +100,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Snake";
             this.Text = "Snake";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paint)).EndInit();
