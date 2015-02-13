@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highScoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paint = new System.Windows.Forms.PictureBox();
+            this.tickEvent = new System.Windows.Forms.Timer(this.components);
+            this.lblScore = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.paint)).BeginInit();
             this.SuspendLayout();
@@ -61,21 +64,21 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // highScoreToolStripMenuItem
             // 
             this.highScoreToolStripMenuItem.Name = "highScoreToolStripMenuItem";
-            this.highScoreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.highScoreToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.highScoreToolStripMenuItem.Text = "High Score";
             this.highScoreToolStripMenuItem.Click += new System.EventHandler(this.highScoreToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -88,17 +91,33 @@
             this.paint.Size = new System.Drawing.Size(720, 425);
             this.paint.TabIndex = 1;
             this.paint.TabStop = false;
-            this.paint.Paint += new System.Windows.Forms.PaintEventHandler(this.onPaint);
+            // 
+            // tickEvent
+            // 
+            this.tickEvent.Enabled = true;
+            this.tickEvent.Interval = 1;
+            this.tickEvent.Tick += new System.EventHandler(this.tickEvent_Tick);
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Location = new System.Drawing.Point(309, 11);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(38, 13);
+            this.lblScore.TabIndex = 2;
+            this.lblScore.Text = "Score:";
             // 
             // Snake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 464);
+            this.Controls.Add(this.lblScore);
             this.Controls.Add(this.paint);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Snake";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Snake";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyDown);
             this.menuStrip1.ResumeLayout(false);
@@ -117,6 +136,8 @@
         private System.Windows.Forms.ToolStripMenuItem highScoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.PictureBox paint;
+        private System.Windows.Forms.Timer tickEvent;
+        private System.Windows.Forms.Label lblScore;
     }
 }
 
